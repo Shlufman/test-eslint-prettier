@@ -1,0 +1,60 @@
+{
+  "extends": [
+    "react-app",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:prettier/recommended",
+    "airbnb",
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "plugin:react/recommended",
+    "plugin:jsx-a11y/recommended"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint", "prettier", "import", "react", "jsx-a11y"],
+  "rules": {
+    "prettier/prettier": ["error"],
+    "no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars": "warn",
+    "react/prop-types": "off", // Отключаем, если используем TypeScript
+    "import/order": [
+      "error",
+      { "groups": [["builtin", "external", "internal"]] }
+    ],
+    "react/jsx-props-no-spreading": "off", // Можете отключить это правило, если хотите использовать spread-оператор для пропсов
+    "react/jsx-uses-react": "off",
+    "react/react-in-jsx-scope": "off",
+    "react/jsx-filename-extension": [
+      "error",
+      {
+        "extensions": [".tsx", ".jsx"] // Разрешает JSX в файлах с расширением .tsx и .jsx
+      }
+    ],
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "js": "never",
+        "jsx": "never",
+        "ts": "never",
+        "tsx": "never"
+      }
+    ],
+    "comma-dangle": [
+      "error",
+      {
+        "arrays": "always-multiline", // Запятая для массивов (многострочные)
+        "objects": "always-multiline", // Запятая для объектов (многострочные)
+        "imports": "never", // Не требовать запятую в импортах
+        "exports": "never", // Не требовать запятую в экспортах
+        "functions": "never" // Не требовать запятую в аргументах функций
+      }
+    ]
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      }
+    }
+  }
+}
